@@ -250,19 +250,38 @@ ul {
 
 /* ---------- Header ---------- */
 
+/* Floating pill. Centred with left/right + auto margins rather than a
+   transform, which would turn the header into the containing block for
+   the fixed mobile nav. */
 .site-header {
   position: fixed;
-  inset: 0 0 auto 0;
+  inset: 14px 14px auto 14px;
   z-index: 50;
-  height: var(--header-h);
+  max-width: 1292px;
+  height: 64px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--gutter);
-  border-bottom: 1px solid transparent;
+  padding: 0 0.75rem 0 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
   transition: border-color 0.3s var(--ease);
   --fg: var(--white);
   --bg: var(--black);
+}
+
+/* Scroll progress bar (injected by main.js) */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: 2px;
+  background: var(--white);
+  mix-blend-mode: difference;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
 }
 
 /* Blur lives on a pseudo-element: backdrop-filter on the header itself would
@@ -272,13 +291,19 @@ ul {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgba(10, 10, 10, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  border-radius: inherit;
+  background: rgba(16, 16, 16, 0.72);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  transition: background 0.3s var(--ease);
 }
 
 .site-header.is-scrolled {
-  border-bottom-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.site-header.is-scrolled::before {
+  background: rgba(10, 10, 10, 0.9);
 }
 
 .logo {
@@ -1083,13 +1108,15 @@ ul {
 .js [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  filter: blur(10px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease), filter 0.9s var(--ease);
   transition-delay: var(--delay, 0s);
 }
 
 .js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 /* ---------- Responsive ---------- */
@@ -1138,12 +1165,13 @@ ul {
 
   .site-nav {
     position: fixed;
-    inset: var(--header-h) 0 0 0;
+    inset: 0;
+    z-index: -1;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 1.5rem;
-    padding: 2rem var(--gutter);
+    padding: 6rem var(--gutter) 2rem;
     background: var(--black);
     font-size: 2.25rem;
     letter-spacing: -0.03em;

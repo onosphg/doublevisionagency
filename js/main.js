@@ -42,10 +42,17 @@
     });
   }
 
-  /* ---------- Header border on scroll ---------- */
+  /* ---------- Header state + scroll progress bar ---------- */
   var header = document.querySelector(".site-header");
+  var progress = document.createElement("div");
+  progress.className = "progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
   function onScroll() {
     if (header) header.classList.toggle("is-scrolled", window.scrollY > 8);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? window.scrollY / max : 0) + ")";
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();

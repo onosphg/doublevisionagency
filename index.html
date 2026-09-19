@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
-<body class="dark">
+<body class="dark home">
 
   <header class="site-header">
     <a class="logo" href="index.html" aria-label="Doublevision Agency — home">
@@ -24,35 +25,40 @@
       <a href="services.html">Services</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn--small" href="contact.html">Let's talk <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--small" href="contact.html">Let's talk <span class="arrow" aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
   <main>
 
-    <!-- Hero -->
-    <section class="hero dark" data-double-zone>
-      <svg class="hero__rings" viewBox="0 0 600 400" aria-hidden="true">
-        <circle cx="230" cy="200" r="190"/>
-        <circle cx="370" cy="200" r="190"/>
-      </svg>
-      <div class="container">
-        <p class="eyebrow" data-reveal>Independent marketing agency</p>
-        <h1 class="h-xl" data-reveal style="--delay:.1s">
-          <span class="double" data-text="Worth a">Worth a</span>
-          <span class="double" data-text="second look.">second look.</span>
-        </h1>
-        <div class="hero__foot" data-reveal style="--delay:.2s">
-          <p class="lead">We build brands and campaigns people notice once and remember twice. Strategy, creative and performance — under one roof.</p>
-          <div class="hero__actions">
-            <a class="btn" href="contact.html">Start a project <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--ghost" href="services.html">What we do</a>
-          </div>
+    <!-- ============ Hero ============ -->
+    <section class="hero2 dark" id="top">
+      <canvas class="hero2__particles" aria-hidden="true"></canvas>
+      <div class="hero2__glow" aria-hidden="true"></div>
+
+      <div class="container hero2__inner">
+        <p class="pill" data-reveal><span class="pill__dot" aria-hidden="true"></span> Independent marketing agency</p>
+        <h1 class="hero2__title" data-split>Marketing people notice once and remember <span class="double" data-text="twice.">twice.</span></h1>
+        <p class="hero2__lead" data-reveal style="--delay:.5s">Strategy, creative and performance under one roof — built to earn attention, hold it, and turn it into growth you can measure.</p>
+        <div class="hero2__actions" data-reveal style="--delay:.6s">
+          <a class="btn" href="contact.html">Start a project <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn--ghost" href="#work">See our work</a>
         </div>
+      </div>
+
+      <!-- Arc of media cards. Add data-video="media/clip.mp4" to any .media to use real footage. -->
+      <div class="arc" data-arc aria-hidden="true">
+        <div class="arc__card" style="--i:-3;--abs:3"><div class="media" data-scene="bars"></div></div>
+        <div class="arc__card" style="--i:-2;--abs:2"><div class="media" data-scene="halftone"></div></div>
+        <div class="arc__card" style="--i:-1;--abs:1"><div class="media" data-scene="waves"></div></div>
+        <div class="arc__card" style="--i:0;--abs:0"><div class="media" data-scene="rings"></div></div>
+        <div class="arc__card" style="--i:1;--abs:1"><div class="media" data-scene="grid"></div></div>
+        <div class="arc__card" style="--i:2;--abs:2"><div class="media" data-scene="orbit"></div></div>
+        <div class="arc__card" style="--i:3;--abs:3"><div class="media" data-scene="scan"></div></div>
       </div>
     </section>
 
-    <!-- Marquee -->
+    <!-- ============ Ticker ============ -->
     <div class="marquee dark" aria-hidden="true">
       <div class="marquee__track">
         <span>Brand strategy</span><span>Content</span><span>Performance</span><span>Social</span><span>Identity</span><span>Campaigns</span>
@@ -60,132 +66,418 @@
       </div>
     </div>
 
-    <!-- Intro -->
-    <section class="section light">
-      <div class="container split">
-        <div data-reveal>
-          <p class="eyebrow">Who we are</p>
-          <h2 class="h-lg">Two ways of seeing. One clear direction.</h2>
+    <!-- ============ Scroll-lit statement ============ -->
+    <section class="section dark statement">
+      <div class="container">
+        <p class="pill" data-reveal>Who we are</p>
+        <p class="statement__text" data-words>Every brief gets looked at twice here: once by a strategist, once by a creative. The work happens where those two views overlap — marketing that is as measurable as it is memorable.</p>
+        <p data-reveal><a class="link-arrow" href="about.html">More about us <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ The problem ============ -->
+    <section class="section dark">
+      <div class="container">
+        <div class="head-center" data-reveal>
+          <p class="pill">The problem</p>
+          <h2 class="h-lg">Plenty of activity. Not much growth.</h2>
+          <p class="lead">You're posting, boosting and reporting — and the numbers that matter barely move. The issue is rarely effort. It's what the effort is pointed at.</p>
         </div>
-        <div class="prose" data-reveal style="--delay:.1s">
-          <p>Every brief gets looked at twice at Doublevision: once through the eyes of a strategist, once through the eyes of a creative. The work happens where those two views overlap.</p>
-          <p>The result is marketing that is as measurable as it is memorable — no fluff, no colour for colour's sake, just sharp ideas in high contrast.</p>
-          <p><a class="link-arrow" href="about.html">More about us <span aria-hidden="true">→</span></a></p>
+
+        <div class="cards-3">
+          <!-- Card 1: line chart that draws itself -->
+          <article class="card spot" data-reveal>
+            <div class="viz">
+              <div class="viz__top"><span>Attention</span><span class="viz__tag">−64% after 3s</span></div>
+              <svg class="viz__chart" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="0" y1="30" x2="300" y2="30"/><line x1="0" y1="60" x2="300" y2="60"/><line x1="0" y1="90" x2="300" y2="90"/>
+                <path class="viz__area" d="M0,18 C40,20 60,24 90,52 S150,92 190,98 S260,106 300,108 L300,120 L0,120 Z"/>
+                <path class="viz__line" pathLength="1" d="M0,18 C40,20 60,24 90,52 S150,92 190,98 S260,106 300,108"/>
+              </svg>
+              <div class="viz__axis"><span>0s</span><span>3s</span><span>6s</span><span>9s</span><span>12s</span></div>
+            </div>
+            <h3>Seen, then skipped</h3>
+            <p class="muted">Your ads get impressions, but people are gone before the message lands.</p>
+          </article>
+
+          <!-- Card 2: counters + bars -->
+          <article class="card spot" data-reveal style="--delay:.1s">
+            <div class="viz">
+              <div class="viz__top"><span>Likes</span><span>Revenue</span></div>
+              <div class="viz__duo">
+                <div><strong data-count="48" data-suffix="K">48K</strong><div class="viz__bar"><i style="--to:.92"></i></div></div>
+                <div><strong data-count="2" data-suffix="%">2%</strong><div class="viz__bar"><i style="--to:.08"></i></div></div>
+              </div>
+              <p class="viz__note">Engagement up. Pipeline flat.</p>
+            </div>
+            <h3>Likes don't pay invoices</h3>
+            <p class="muted">Vanity metrics feel good in a report and do nothing for the business.</p>
+          </article>
+
+          <!-- Card 3: weekly activity + ring -->
+          <article class="card spot" data-reveal style="--delay:.2s">
+            <div class="viz">
+              <div class="viz__top"><span>Posting activity</span><span class="viz__tag">No system</span></div>
+              <div class="viz__week">
+                <span style="--h:.7"><i></i>M</span><span style="--h:0"><i></i>T</span><span style="--h:.35"><i></i>W</span><span style="--h:0"><i></i>T</span><span style="--h:0"><i></i>F</span><span style="--h:1"><i></i>S</span><span style="--h:0"><i></i>S</span>
+              </div>
+              <div class="viz__ring">
+                <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18"/><circle class="viz__ring-fill" cx="22" cy="22" r="18" pathLength="100" style="--pct:32"/></svg>
+                <span><strong>3 / 10</strong> planned posts shipped</span>
+              </div>
+            </div>
+            <h3>Random acts of marketing</h3>
+            <p class="muted">Without a plan, every channel runs on mood — and results follow.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Services preview -->
+    <!-- ============ Numbers ============ -->
     <section class="section dark">
       <div class="container">
-        <div class="section-head" data-reveal>
+        <div class="head-split" data-reveal>
           <div>
-            <p class="eyebrow">Services</p>
-            <h2 class="h-lg">What we do best</h2>
+            <p class="pill">How we fix it</p>
+            <h2 class="h-lg">One team. One plan. Numbers that move.</h2>
           </div>
-          <a class="link-arrow" href="services.html">All services <span aria-hidden="true">→</span></a>
+          <p class="lead">We don't just make things look good — we build each campaign around a clear goal, then test and tune until it gets there.</p>
         </div>
-        <div class="service-list">
-          <a class="service-row" href="services.html#strategy" data-reveal>
-            <span class="service-row__num">01</span>
-            <h3 class="h-md">Brand strategy</h3>
-            <p class="muted">Positioning, messaging and the plan that holds it all together.</p>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
+
+        <!-- Placeholder figures — replace with real results. -->
+        <div class="cards-4">
+          <article class="card card--num spot" data-reveal>
+            <strong data-count="120" data-suffix="+">120+</strong>
+            <h3>Campaigns launched</h3>
+            <p class="muted">From start-up launches to national rebrands.</p>
+          </article>
+          <article class="card card--num spot" data-reveal style="--delay:.08s">
+            <strong data-count="3" data-suffix="x">3x</strong>
+            <h3>Average return on ad spend</h3>
+            <p class="muted">Measured on revenue, not reach.</p>
+          </article>
+          <article class="card card--num spot" data-reveal style="--delay:.16s">
+            <strong data-count="87" data-suffix="%">87%</strong>
+            <h3>Clients who come back</h3>
+            <p class="muted">Most of our work is repeat work.</p>
+          </article>
+          <article class="card card--num spot" data-reveal style="--delay:.24s">
+            <strong data-count="48" data-suffix="h">48h</strong>
+            <h3>First ideas on the table</h3>
+            <p class="muted">Brief us Monday, react to thinking by Wednesday.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Services ============ -->
+    <section class="section dark" id="services">
+      <div class="container">
+        <div class="head-center" data-reveal>
+          <p class="pill">What we do</p>
+          <h2 class="h-lg">From first idea to final report</h2>
+          <p class="lead">Four disciplines that work best together. Hire us for one, or for the whole picture.</p>
+        </div>
+
+        <div class="cards-4 cards-4--media">
+          <a class="card card--media spot" href="services.html#strategy" data-reveal>
+            <div class="media" data-scene="orbit" data-play="hover"></div>
+            <h3>Brand strategy</h3>
+            <p class="muted">Positioning, messaging and the plan that holds it together.</p>
           </a>
-          <a class="service-row" href="services.html#identity" data-reveal>
-            <span class="service-row__num">02</span>
-            <h3 class="h-md">Identity &amp; design</h3>
-            <p class="muted">Visual systems that stay consistent everywhere your brand shows up.</p>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
+          <a class="card card--media spot" href="services.html#identity" data-reveal style="--delay:.08s">
+            <div class="media" data-scene="rings" data-play="hover"></div>
+            <h3>Identity &amp; design</h3>
+            <p class="muted">Visual systems that stay consistent everywhere you show up.</p>
           </a>
-          <a class="service-row" href="services.html#content" data-reveal>
-            <span class="service-row__num">03</span>
-            <h3 class="h-md">Content &amp; social</h3>
+          <a class="card card--media spot" href="services.html#content" data-reveal style="--delay:.16s">
+            <div class="media" data-scene="waves" data-play="hover"></div>
+            <h3>Content &amp; social</h3>
             <p class="muted">Stories, video and always-on social that earn attention.</p>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
           </a>
-          <a class="service-row" href="services.html#performance" data-reveal>
-            <span class="service-row__num">04</span>
-            <h3 class="h-md">Performance marketing</h3>
-            <p class="muted">Paid media, SEO and CRO — tested, tracked and tuned weekly.</p>
-            <span class="service-row__arrow" aria-hidden="true">→</span>
+          <a class="card card--media spot" href="services.html#performance" data-reveal style="--delay:.24s">
+            <div class="media" data-scene="bars" data-play="hover"></div>
+            <h3>Performance</h3>
+            <p class="muted">Paid media, SEO and CRO — tested and tuned weekly.</p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Stats -->
-    <section class="section light">
+    <!-- ============ Pinned text + stacking cards ============ -->
+    <section class="section dark">
+      <div class="container pin">
+        <div class="pin__aside">
+          <p class="pill">Why Doublevision</p>
+          <h2 class="h-lg">More impact,<br>less noise.</h2>
+          <p class="lead">Hand off the heavy lifting. We deliver finished, on-brand work while you get on with running the business.</p>
+          <a class="btn" href="contact.html">Start growing <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="stack" data-stack>
+          <article class="stack__card" style="--n:0">
+            <div class="stack__inner">
+              <span class="stack__num">01</span>
+              <h3>Senior people only</h3>
+              <p class="muted">No hand-offs to juniors. The strategist and creative you meet are the ones doing the work.</p>
+            </div>
+          </article>
+          <article class="stack__card" style="--n:1">
+            <div class="stack__inner">
+              <span class="stack__num">02</span>
+              <h3>Built to perform</h3>
+              <p class="muted">Every piece ships with a measurement plan, so you always know what worked and what didn't.</p>
+            </div>
+          </article>
+          <article class="stack__card" style="--n:2">
+            <div class="stack__inner">
+              <span class="stack__num">03</span>
+              <h3>Fast, without the chaos</h3>
+              <p class="muted">Short sprints, one shared board and a weekly check-in. No surprises and no 40-slide status decks.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Work reel (drag / swipe) ============ -->
+    <section class="section dark" id="work" data-scroller>
       <div class="container">
-        <div class="section-head" data-reveal>
+        <div class="head-split" data-reveal>
           <div>
-            <p class="eyebrow">In numbers</p>
-            <h2 class="h-lg">Results in black and white</h2>
+            <p class="pill">Client results</p>
+            <h2 class="h-lg">Real work,<br>real numbers.</h2>
           </div>
-        </div>
-        <div class="stats" data-reveal>
-          <div class="stat">
-            <div class="stat__value" data-count="120" data-suffix="+">120+</div>
-            <p class="stat__label">Campaigns launched</p>
-          </div>
-          <div class="stat">
-            <div class="stat__value" data-count="48">48</div>
-            <p class="stat__label">Brands partnered with</p>
-          </div>
-          <div class="stat">
-            <div class="stat__value" data-count="3" data-suffix="x">3x</div>
-            <p class="stat__label">Average return on ad spend</p>
-          </div>
-          <div class="stat">
-            <div class="stat__value" data-count="9">9</div>
-            <p class="stat__label">Years in the game</p>
+          <div class="scroller-nav">
+            <button type="button" data-prev aria-label="Previous projects">←</button>
+            <button type="button" data-next aria-label="Next projects">→</button>
           </div>
         </div>
       </div>
+
+      <!-- Placeholder projects — swap names, numbers and media for real case studies. -->
+      <div class="reel" data-track tabindex="0" aria-label="Client results, scroll horizontally">
+        <article class="reel-card">
+          <div class="media" data-scene="halftone" data-play="hover"></div>
+          <div class="reel-card__info"><strong>+212%</strong><span>organic reach</span><em>Northwind Coffee</em></div>
+        </article>
+        <article class="reel-card">
+          <div class="media" data-scene="scan" data-play="hover"></div>
+          <div class="reel-card__info"><strong>3.4x</strong><span>return on ad spend</span><em>Halden Bikes</em></div>
+        </article>
+        <article class="reel-card">
+          <div class="media" data-scene="rings" data-play="hover"></div>
+          <div class="reel-card__info"><strong>+9K</strong><span>subscribers in 60 days</span><em>Oru Studio</em></div>
+        </article>
+        <article class="reel-card">
+          <div class="media" data-scene="grid" data-play="hover"></div>
+          <div class="reel-card__info"><strong>−38%</strong><span>cost per lead</span><em>Meridian Health</em></div>
+        </article>
+        <article class="reel-card">
+          <div class="media" data-scene="waves" data-play="hover"></div>
+          <div class="reel-card__info"><strong>2.6x</strong><span>demo requests</span><em>Pale Fox</em></div>
+        </article>
+        <article class="reel-card">
+          <div class="media" data-scene="orbit" data-play="hover"></div>
+          <div class="reel-card__info"><strong>1.1M</strong><span>campaign views</span><em>Tandem Travel</em></div>
+        </article>
+      </div>
     </section>
 
-    <!-- Latest posts -->
+    <!-- ============ Process + before/after ============ -->
     <section class="section dark">
       <div class="container">
-        <div class="section-head" data-reveal>
-          <div>
-            <p class="eyebrow">Journal</p>
-            <h2 class="h-lg">Latest thinking</h2>
-          </div>
-          <a class="link-arrow" href="blog.html">Read the blog <span aria-hidden="true">→</span></a>
+        <div class="head-center" data-reveal>
+          <p class="pill">Process</p>
+          <h2 class="h-lg">From brief to results in three moves</h2>
         </div>
-        <div class="posts">
-          <article class="post" data-reveal>
-            <a href="blog.html">
-              <div class="post__thumb pattern-eyes"></div>
-              <div class="post__meta"><span>Strategy</span><span>6 min read</span></div>
-              <h3>Why the best brands are easy to recognise with your eyes half closed</h3>
-            </a>
+
+        <div class="steps">
+          <article class="card step spot" data-reveal>
+            <span class="step__num">1</span>
+            <div class="step__art step__art--brief" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <h3>Send the brief</h3>
+            <p class="muted">Tell us the goal, the audience and the budget. We audit what you have before we have opinions.</p>
           </article>
-          <article class="post" data-reveal style="--delay:.1s">
-            <a href="blog.html">
-              <div class="post__thumb pattern-stripes"></div>
-              <div class="post__meta"><span>Performance</span><span>4 min read</span></div>
-              <h3>Creative is the new targeting: what changed in paid social</h3>
-            </a>
+
+          <article class="card step step--wide spot" data-reveal style="--delay:.1s">
+            <span class="step__num">2</span>
+            <div class="compare" style="--pos:50%">
+              <div class="compare__pane compare__before" aria-hidden="true">
+                <small>Before</small>
+                <div class="ad ad--before">
+                  <b>Quality solutions for all your needs</b>
+                  <i></i><i></i><i></i>
+                  <u>Learn more</u>
+                </div>
+              </div>
+              <div class="compare__pane compare__after" aria-hidden="true">
+                <small>After</small>
+                <div class="ad ad--after">
+                  <b><span class="double" data-text="Seen.">Seen.</span></b>
+                  <u>Get yours ↗</u>
+                </div>
+              </div>
+              <div class="compare__handle" aria-hidden="true"><span>↔</span></div>
+              <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+            </div>
+            <h3>We sharpen it</h3>
+            <p class="muted">One idea, high contrast, nothing extra. Drag the slider to see the difference.</p>
           </article>
-          <article class="post" data-reveal style="--delay:.2s">
-            <a href="blog.html">
-              <div class="post__thumb pattern-dots"></div>
-              <div class="post__meta"><span>Design</span><span>5 min read</span></div>
-              <h3>The case for a two-colour brand in a full-colour world</h3>
-            </a>
+
+          <article class="card step spot" data-reveal style="--delay:.2s">
+            <span class="step__num">3</span>
+            <div class="step__art step__art--launch" aria-hidden="true">
+              <div class="media" data-scene="bars"></div>
+            </div>
+            <h3>Launch and tune</h3>
+            <p class="muted">Go live, track weekly, change what isn't working. Monthly reports in plain language.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ============ Testimonials ============ -->
+    <section class="section dark" data-scroller data-autoplay="6000">
+      <div class="container">
+        <div class="head-split" data-reveal>
+          <div>
+            <p class="pill">Testimonials</p>
+            <h2 class="h-lg">What clients say after working with us</h2>
+          </div>
+          <div class="scroller-nav">
+            <span class="scroller-count" data-count-label>01 / 03</span>
+            <button type="button" data-prev aria-label="Previous testimonial">←</button>
+            <button type="button" data-next aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+
+        <!-- Placeholder quotes — replace with real client testimonials. -->
+        <div class="quotes" data-track>
+          <figure class="quote">
+            <div class="quote__stat"><strong>3x</strong><span>qualified leads</span></div>
+            <blockquote>“Before Doublevision we were posting and hoping. Now every piece has a job, and we can see exactly which ones are doing it.”</blockquote>
+            <figcaption><span class="quote__avatar">RM</span><span><b>Riley Marsh</b><br>Marketing Lead, Halden Bikes</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <div class="quote__stat"><strong>−38%</strong><span>cost per lead</span></div>
+            <blockquote>“They told us what to stop doing, which no agency had done before. Spend went down and results went up inside a quarter.”</blockquote>
+            <figcaption><span class="quote__avatar">DP</span><span><b>Dana Petrov</b><br>Founder, Meridian Health</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <div class="quote__stat"><strong>+212%</strong><span>organic reach</span></div>
+            <blockquote>“The rebrand finally made us look like the company we actually are. People recognise us now before they read the name.”</blockquote>
+            <figcaption><span class="quote__avatar">KO</span><span><b>Kai Okafor</b><br>CEO, Northwind Coffee</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Plans ============ -->
+    <section class="section dark" id="plans">
+      <div class="container">
+        <div class="head-center" data-reveal>
+          <p class="pill">Plans</p>
+          <h2 class="h-lg">Simple ways to work together</h2>
+          <p class="lead">Pick the shape that fits. Every plan includes a strategist–creative pair and a monthly report.</p>
+        </div>
+
+        <!-- Placeholder pricing — set your real numbers. -->
+        <div class="plans">
+          <article class="card plan spot" data-reveal>
+            <h3>Starter</h3>
+            <p class="muted">For brands finding their footing.</p>
+            <p class="plan__price"><strong>$2,500</strong><span>/ month</span></p>
+            <ul>
+              <li>One channel, fully managed</li>
+              <li>8 pieces of content a month</li>
+              <li>Monthly performance report</li>
+              <li>Email support</li>
+            </ul>
+            <a class="btn btn--ghost" href="contact.html">Get started <span class="arrow" aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="card plan plan--featured" data-reveal style="--delay:.1s">
+            <span class="plan__badge">Most popular</span>
+            <h3>Growth</h3>
+            <p>For teams ready to scale what works.</p>
+            <p class="plan__price"><strong>$5,000</strong><span>/ month</span></p>
+            <ul>
+              <li>Three channels, fully managed</li>
+              <li>20 pieces of content a month</li>
+              <li>Paid media management</li>
+              <li>Fortnightly strategy call</li>
+              <li>Unlimited revisions</li>
+            </ul>
+            <a class="btn" href="contact.html">Get started <span class="arrow" aria-hidden="true">↗</span></a>
+          </article>
+
+          <article class="card plan spot" data-reveal style="--delay:.2s">
+            <h3>Partner</h3>
+            <p class="muted">Your outsourced marketing department.</p>
+            <p class="plan__price"><strong>Custom</strong></p>
+            <ul>
+              <li>Full-funnel strategy and delivery</li>
+              <li>Brand, content and performance</li>
+              <li>Dedicated team and shared board</li>
+              <li>Weekly reporting</li>
+            </ul>
+            <a class="btn btn--ghost" href="contact.html">Talk to us <span class="arrow" aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section dark">
+      <div class="container faq-wrap">
+        <div data-reveal>
+          <p class="pill">FAQ</p>
+          <h2 class="h-lg">Everything you need to know</h2>
+          <p class="lead">Still unsure? <a class="link-arrow" href="contact.html">Ask us directly <span aria-hidden="true">→</span></a></p>
+        </div>
+        <div class="faq faq--cards" data-reveal style="--delay:.1s">
+          <details open>
+            <summary>What does Doublevision actually do?</summary>
+            <p>Brand strategy, identity and design, content and social, and performance marketing. Most clients use two or more, run by one paired team.</p>
+          </details>
+          <details>
+            <summary>How fast can you start?</summary>
+            <p>Usually within two weeks of a signed scope. You'll see first thinking within 48 hours of the kickoff.</p>
+          </details>
+          <details>
+            <summary>Do you lock us into a contract?</summary>
+            <p>Retainers begin with a three-month minimum so there's time to learn and improve. After that it's month to month.</p>
+          </details>
+          <details>
+            <summary>Can you work with our in-house team?</summary>
+            <p>Yes — that's how most engagements run. We plug into your tools and hand over everything we build.</p>
+          </details>
+          <details>
+            <summary>How do you report results?</summary>
+            <p>One monthly report, five numbers, plain language: what worked, what didn't, and what we're changing next.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Channels ticker ============ -->
+    <div class="marquee marquee--reverse marquee--small dark" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Instagram</span><span>TikTok</span><span>YouTube</span><span>LinkedIn</span><span>Google Ads</span><span>Meta Ads</span><span>Email</span><span>SEO</span>
+        <span>Instagram</span><span>TikTok</span><span>YouTube</span><span>LinkedIn</span><span>Google Ads</span><span>Meta Ads</span><span>Email</span><span>SEO</span>
+      </div>
+    </div>
+
+    <!-- ============ CTA ============ -->
     <section class="section light cta" data-double-zone>
       <div class="container" data-reveal>
         <p class="eyebrow">Ready when you are</p>
         <h2 class="h-xl"><span class="double" data-text="Let's talk.">Let's talk.</span></h2>
-        <a class="btn" href="contact.html">Get in touch <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="contact.html">Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
+        <p class="cta__note">No long contracts. Fast start. Results you can read.</p>
       </div>
     </section>
 
@@ -234,5 +526,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
